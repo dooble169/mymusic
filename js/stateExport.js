@@ -1,39 +1,41 @@
-export const dom = 
+export const domStation = 
 {
-    searchTrackBar: document.getElementById('searchTrackBar'),
-    uploadTrack: document.getElementById('upload-track'),
-    audioFromTrack: document.getElementById('audioFromTrack'),
-    
-    playPreviousTrackButton: document.getElementById('playPreviousTrackButton'),
-    playPauseTrackButton: document.getElementById('playPauseTrackButton'),
-    playNextTrackButton: document.getElementById('playNextTrackButton'),
+  playOneSongButton: document.getElementById('playOneSongButton'),
+  searchTrackBar: document.getElementById('searchTrackBar'),
+  uploadTrack: document.getElementById('upload-track'),
+  
+  playPreviousTrackButton: document.getElementById('playPreviousTrackButton'),
+  playPauseTrackButton: document.getElementById('playPauseTrackButton'),
+  playNextTrackButton: document.getElementById('playNextTrackButton'),
 
-    volumeBar: document.getElementById('volumeBar'),
-    seekBar: document.getElementById('seekBar'),
+  audioFromTrack: document.getElementById('audioFromTrack'),
 
-    userPlaylistLayout: document.getElementById('userPlaylistLayout'),
+  volumeBar: document.getElementById('volumeBar'),
+  seekBar: document.getElementById('seekBar'),
+
+  userPlaylistLayout: document.getElementById('userPlaylistLayout'),
 }
 
-export const store = 
+
+export const storeStation = 
 {
-    playlistDB: null,
+  playlistDB: null,
 
-    tracks: [],
-    trackMetadata: [],
+  tracksArray: [],
+  trackMetadataArray: [],
 
-    currentTrackIndex: -1,
-    currentTrackURL: null,
-    nextTrackURL: null,
+  currentTrackIndex: -1,
+  currentTrackURL: null,
+  nextTrackURL: null,
 
-    loadToken: 0,
-    preloadToken: 0,
+  loadToken: 0,
+  preloadToken: 0,
 
-    isTrackFound: false,
-    searchTrackTimeout: null,
-    isPlaylistLoaded: false,
-    volumeBeforeMute: null,
+  isPlaylistLoaded: false,
+  isTrackFound: false,
+  searchTrackTimeout: null,
 
-    playOneMode: false,
-
-    userInteractedEarly: false,
+  volumeBeforeMute: null,
+  isPlayOneTrackMode: false,
+  userInteractedEarly: false,
 }

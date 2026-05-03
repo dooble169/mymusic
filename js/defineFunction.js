@@ -1,53 +1,59 @@
-import { dom, store } from './stateExport.js'
+import { domStation, storeStation } from './stateExport.js'
+
 
 const 
 {
-    searchTrackBar,
-    uploadTrack,
-    audioFromTrack,
+  playOneSongButton,
+  searchTrackBar,
+  uploadTrack,
 
-    playPreviousTrackButton,
-    playPauseTrackButton,
-    playNextTrackButton,
+  playPreviousTrackButton,
+  playPauseTrackButton,
+  playNextTrackButton,
 
-    volumeBar,
-    seekBar,
-    
-    userPlaylistLayout,
-} = dom
+  audioFromTrack,
 
-Object.assign(dom, 
+  volumeBar,
+  seekBar,
+
+  userPlaylistLayout,
+} = domStation
+
+
+Object.assign(domStation, 
 {
-    searchTrackBar,
-    uploadTrack,
-    audioFromTrack,
+  playOneSongButton,
+  searchTrackBar,
+  uploadTrack,
 
-    playPreviousTrackButton,
-    playPauseTrackButton,
-    playNextTrackButton,
+  playPreviousTrackButton,
+  playPauseTrackButton,
+  playNextTrackButton,
 
-    volumeBar,
-    seekBar,
+  audioFromTrack,
 
-    userPlaylistLayout,
+  volumeBar,
+  seekBar,
+
+  userPlaylistLayout,
 })
 
-store.tracks = []
-store.trackMetadata = []
 
-store.currentTrackIndex = -1
-store.currentTrackURL = null
-store.nextTrackURL = null
+storeStation.tracksArray = []
+storeStation.trackMetadataArray = []
 
-store.playlistDB = null
-store.loadToken = 0
-store.preloadToken = 0
+storeStation.currentTrackIndex = -1
+storeStation.currentTrackURL = null
+storeStation.nextTrackURL = null
 
-store.isTrackFound = false
-store.searchTrackTimeout = null
-store.isPlaylistLoaded = false
-store.volumeBeforeMute = null
+storeStation.playlistDB = null
+storeStation.loadToken = 0
+storeStation.preloadToken = 0
 
-store.playOneMode = false
+storeStation.isPlaylistLoaded = false
+storeStation.isTrackFound = false
+storeStation.searchTrackTimeout = null
 
-store.userInteractedEarly = false
+storeStation.volumeBeforeMute = null
+storeStation.isPlayOneTrackMode = false
+storeStation.userInteractedEarly = false

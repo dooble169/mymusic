@@ -1,9 +1,11 @@
 *, *::before, *::after {box-sizing: border-box; margin: 0; padding: 0;}
 html {&:has(dialog[open]:modal) {overflow: hidden;}} 
 
+
 .image-fullsize {width: 100%; height: 100%;}
 img {-webkit-user-drag: none;}
 img[src=""], img:not([src]), img.missing {display: none;}
+
 
 input[type="search"]::-ms-clear,
 input[type="search"]::-ms-reveal {width: 0; height: 0; display: none;}
@@ -12,215 +14,234 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {display: none; -webkit-appearance: none; appearance: none;}
 
+
 input::placeholder {color: var(--fontcolor-2);}
+
 
 input[type="range"] 
 {
-    width: 100%;
+  width: 100%;
 
-    background-color: #ffffff;
+  background-color: #ffffff;
 
-    outline: none;
-    cursor: pointer;
+  outline: none;
+  cursor: pointer;
 }
+
 
 input[type="range"]::-webkit-slider-runnable-track 
 {
-    height: 0.6em;
+  height: 0.6em;
 
-    border-radius: 3px;
-    background-color: var(--backgroundcolor-3);
+  border-radius: 3px;
+  background-color: var(--backgroundcolor-3);
 }
+
 
 input[type="range"]::-webkit-slider-thumb 
 {
-    margin-top: -0.34em;
+  margin-top: -0.34em;
 
-    height: 2em;
-    aspect-ratio: 1/1;
+  height: 2em;
+  aspect-ratio: 1/1;
 
-    border-radius: var(--borderradius-square);
-    background-color: var(--backgroundcolor-a);
-    transition: background 0.3s;
+  border-radius: var(--borderradius-square);
+  background-color: var(--backgroundcolor-a);
+  transition: background 0.3s;
 
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
+
 
 audio {display: none;}
 
+
 dialog::backdrop {background-color: var(--backgroundcolor-1);}
+
 
 #upload-track {display: none;}
 .upload-track {width: 100%; height: 100%; cursor: pointer;}
 
+
 .active-track
 {
-    color: var(--textcolor-3);
-    border-radius: 0.6rem;
-    background-color: color-mix(in oklch, var(--backgroundcolor-2) 60%, transparent);
+  color: var(--textcolor-3);
+  border-radius: 0.6rem;
+  background-color: color-mix(in oklch, var(--backgroundcolor-2) 60%, transparent);
 
-    position: relative;
-    z-index: 0;
+  position: relative;
+  z-index: 0;
 }
+
 
 @supports (background-color: color-mix(in oklch, var(--backgroundcolor-c) 60%, transparent)) 
 {
-    .active-track:hover {background-color: color-mix(in oklch, var(--backgroundcolor-c) 60%, transparent);}
+  .active-track:hover {background-color: color-mix(in oklch, var(--backgroundcolor-c) 60%, transparent);}
 }
+
 
 .active-track::before 
 {
-    content: "";
+  content: "";
 
-    padding: 0.18rem;
-    inset: 0;
+  padding: 0.18rem;
+  inset: 0;
 
-    border-radius: inherit;
-    background: 
-        conic-gradient(from var(--gradient-angle),
-            var(--cardbackgroundcolor-1),
-            var(--cardbackgroundcolor-2),
-            var(--cardbackgroundcolor-3),
-            var(--cardbackgroundcolor-2),
-            var(--cardbackgroundcolor-1)
-        );
+  border-radius: inherit;
+  background: 
+    conic-gradient(from var(--gradient-angle),
+        var(--cardbackgroundcolor-1),
+        var(--cardbackgroundcolor-2),
+        var(--cardbackgroundcolor-3),
+        var(--cardbackgroundcolor-2),
+        var(--cardbackgroundcolor-1)
+    );
 
-    -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-    mask-repeat: no-repeat;
-    mask-composite: exclude;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-composite: xor;
+  -webkit-mask:
+  linear-gradient(#fff 0 0) content-box,
+  linear-gradient(#fff 0 0);
+  mask-repeat: no-repeat;
+  mask-composite: exclude;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: xor;
 
-    z-index: -1;
-    position: absolute;
-    pointer-events: none;
-    animation: rotation 18s linear infinite;
+  z-index: -1;
+  position: absolute;
+  pointer-events: none;
+  animation: rotation 18s linear infinite;
 }
+
 
 .active-track::after 
 {
-    content: "";
+  content: "";
 
-    padding: 0.18rem;
-    border-radius: inherit;
-    background: inherit;
+  padding: 0.18rem;
+  border-radius: inherit;
+  background: inherit;
 
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  inset: 0;
 
-    opacity: 0.4;
-    pointer-events: none;
-    z-index: -2;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -2;
 }
+
 
 @property --gradient-angle 
 {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
+
 
 @keyframes rotation 
 {
-    0% {--gradient-angle: 0deg;}
-    100% {--gradient-angle: 360deg;}
+  0% {--gradient-angle: 0deg;}
+  100% {--gradient-angle: 360deg;}
 }
+
 
 body
 {
-    margin: 0;
-    padding-top: 4em;
+  margin: 0;
+  padding-top: 4em;
 
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
 
-    font-family: 'Courier-New', monospace;
-    background-color: var(--backgroundcolor-1);
+  font-family: 'Courier-New', monospace;
+  background-color: var(--backgroundcolor-1);
 }
+
 
 .scroll-track 
 {
-    animation-name: scrollText;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+  animation-name: scrollText;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
+
 
 @keyframes scrollText 
 {
-    0% {transform: translateX(var(--startX));}
-    50% {transform: translateX(var(--midX));}
-    50.01% {transform: translateX(var(--resetX));}
-    100% {transform: translateX(var(--endX));}
+  0% {transform: translateX(var(--startX));}
+  50% {transform: translateX(var(--midX));}
+  50.01% {transform: translateX(var(--resetX));}
+  100% {transform: translateX(var(--endX));}
 }
+
 
 :root
 {
-    --borderradius-square: 0.4em;
-    --borderradius-circle: 2em;
+  --borderradius-square: 0.4em;
+  --borderradius-circle: 2em;
 }
+
 
 :root
 {
-    --lightmode-backgroundcolor-1: oklch(97% 0 0);
-    --lightmode-backgroundcolor-2: oklch(92% 0 0);
-    --lightmode-backgroundcolor-3: oklch(87% 0 0);
-    --lightmode-backgroundcolor-4: oklch(82% 0 0);
+  --lightmode-backgroundcolor-1: oklch(97% 0 0);
+  --lightmode-backgroundcolor-2: oklch(92% 0 0);
+  --lightmode-backgroundcolor-3: oklch(87% 0 0);
+  --lightmode-backgroundcolor-4: oklch(82% 0 0);
 
-    --lightmode-cardbackgroundcolor-1: oklch(97% 0 0);
-    --lightmode-cardbackgroundcolor-2: oklch(97% 0 0);
-    --lightmode-cardbackgroundcolor-3: oklch(37% 0 0);
+  --lightmode-cardbackgroundcolor-1: oklch(97% 0 0);
+  --lightmode-cardbackgroundcolor-2: oklch(97% 0 0);
+  --lightmode-cardbackgroundcolor-3: oklch(37% 0 0);
 
-    --lightmode-backgroundcolor-a: oklch(37% 0 0);
-    --lightmode-backgroundcolor-b: oklch(45% 0 0);
-    --lightmode-backgroundcolor-c: oklch(88% 0 0);
+  --lightmode-backgroundcolor-a: oklch(37% 0 0);
+  --lightmode-backgroundcolor-b: oklch(45% 0 0);
+  --lightmode-backgroundcolor-c: oklch(88% 0 0);
 
-    --lightmode-textcolor-1: oklch(7% 0 0);
-    --lightmode-textcolor-2: oklch(100% 0 0);
-    --lightmode-textcolor-3: oklch(37% 0 0);
-    --lightmode-textcolor-4: oklch(42% 0 0);
-    --lightmode-textcolor-a: oklch(100% 0.00011 271.152);
+  --lightmode-textcolor-1: oklch(7% 0 0);
+  --lightmode-textcolor-2: oklch(100% 0 0);
+  --lightmode-textcolor-3: oklch(37% 0 0);
+  --lightmode-textcolor-4: oklch(42% 0 0);
+  --lightmode-textcolor-a: oklch(100% 0.00011 271.152);
 
-    --darkmode-backgroundcolor-1: oklch(25% 0 0);
-    --darkmode-backgroundcolor-2: oklch(29% 0 0);
-    --darkmode-backgroundcolor-3: oklch(35% 0 0);
-    --darkmode-backgroundcolor-4: oklch(41% 0 0);
+  --darkmode-backgroundcolor-1: oklch(25% 0 0);
+  --darkmode-backgroundcolor-2: oklch(29% 0 0);
+  --darkmode-backgroundcolor-3: oklch(35% 0 0);
+  --darkmode-backgroundcolor-4: oklch(41% 0 0);
 
-    --darkmode-cardbackgroundcolor-1: oklch(29% 0 0);
-    --darkmode-cardbackgroundcolor-2: oklch(29% 0 0);
-    --darkmode-cardbackgroundcolor-3: oklch(56.251% 0.07707 142.809);
+  --darkmode-cardbackgroundcolor-1: oklch(29% 0 0);
+  --darkmode-cardbackgroundcolor-2: oklch(29% 0 0);
+  --darkmode-cardbackgroundcolor-3: oklch(56.251% 0.07707 142.809);
 
-    --darkmode-backgroundcolor-a: oklch(56.251% 0.07707 142.809); /* oklch(56.251% 0.07707 142.809) */
-    --darkmode-backgroundcolor-b: oklch(50.251% 0.07707 142.809); /* oklch(51.822% 0.14605 265.921) */
-    --darkmode-backgroundcolor-c: oklch(31% 0 0);
+  --darkmode-backgroundcolor-a: oklch(56.251% 0.07707 142.809); /* oklch(56.251% 0.07707 142.809) */
+  --darkmode-backgroundcolor-b: oklch(50.251% 0.07707 142.809); /* oklch(51.822% 0.14605 265.921) */
+  --darkmode-backgroundcolor-c: oklch(31% 0 0);
 
-    --darkmode-textcolor-1: oklch(97% 0 0);
-    --darkmode-textcolor-2: oklch(92% 0 0);
-    --darkmode-textcolor-3: oklch(82% 0 0);
-    --darkmode-textcolor-4: oklch(60% 0 0);
-    --darkmode-textcolor-a: oklch(80.251% 0.07707 142.809);
+  --darkmode-textcolor-1: oklch(97% 0 0);
+  --darkmode-textcolor-2: oklch(92% 0 0);
+  --darkmode-textcolor-3: oklch(82% 0 0);
+  --darkmode-textcolor-4: oklch(60% 0 0);
+  --darkmode-textcolor-a: oklch(80.251% 0.07707 142.809);
 }
+
 
 :root
 {
-    --backgroundcolor-1: var(--lightmode-backgroundcolor-1);
-    --backgroundcolor-2: var(--lightmode-backgroundcolor-2);
-    --backgroundcolor-3: var(--lightmode-backgroundcolor-3);
-    --backgroundcolor-4: var(--lightmode-backgroundcolor-4);
+  --backgroundcolor-1: var(--lightmode-backgroundcolor-1);
+  --backgroundcolor-2: var(--lightmode-backgroundcolor-2);
+  --backgroundcolor-3: var(--lightmode-backgroundcolor-3);
+  --backgroundcolor-4: var(--lightmode-backgroundcolor-4);
 
-    --backgroundcolor-a: var(--lightmode-backgroundcolor-a);
-    --backgroundcolor-b: var(--lightmode-backgroundcolor-b);
-    --backgroundcolor-c: var(--lightmode-backgroundcolor-c);
+  --backgroundcolor-a: var(--lightmode-backgroundcolor-a);
+  --backgroundcolor-b: var(--lightmode-backgroundcolor-b);
+  --backgroundcolor-c: var(--lightmode-backgroundcolor-c);
 
-    --cardbackgroundcolor-1: var(--lightmode-cardbackgroundcolor-1);
-    --cardbackgroundcolor-2: var(--lightmode-cardbackgroundcolor-2);
-    --cardbackgroundcolor-3: var(--lightmode-cardbackgroundcolor-3);
+  --cardbackgroundcolor-1: var(--lightmode-cardbackgroundcolor-1);
+  --cardbackgroundcolor-2: var(--lightmode-cardbackgroundcolor-2);
+  --cardbackgroundcolor-3: var(--lightmode-cardbackgroundcolor-3);
 
-    --textcolor-1: var(--lightmode-textcolor-1);
-    --textcolor-2: var(--lightmode-textcolor-2);
-    --textcolor-3: var(--lightmode-textcolor-3);
-    --textcolor-4: var(--lightmode-textcolor-4);
+  --textcolor-1: var(--lightmode-textcolor-1);
+  --textcolor-2: var(--lightmode-textcolor-2);
+  --textcolor-3: var(--lightmode-textcolor-3);
+  --textcolor-4: var(--lightmode-textcolor-4);
 }

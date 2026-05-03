@@ -1,44 +1,49 @@
-import { dom, store } from './stateExport.js'
+import { domStation, storeStation } from './stateExport.js'
 import { noResultsLayout } from './function.js'
 
-const { searchTrackBar } = dom
 
+const { searchTrackBar } = domStation
 searchTrackBar.addEventListener('input', () =>
 {
-    if (!store.isPlaylistLoaded) 
-        return;
+  if (!storeStation.isPlaylistLoaded)
+  {
+    return
+  }
 
-    clearTimeout(store.searchTrackTimeout)
-    
-    const searchValue = searchTrackBar.value.toLowerCase()
-    store.searchTrackTimeout = setTimeout(() =>
+  clearTimeout(storeStation.searchTrackTimeout)
+  
+  const searchValue = searchTrackBar.value.toLowerCase()
+  storeStation.searchTrackTimeout = setTimeout(() =>
+  {
+    if (!storeStation.isPlaylistLoaded)
     {
-        if (!store.isPlaylistLoaded)
-        {
-            noResultsLayout.style.display = 
-            (searchValue.length > 0) ? '' : 'none'
-            return
-        }
+      noResultsLayout.style.display = (searchValue.length > 0) ? (''): ('none')
+      return
+    }
 
-        if (searchValue.length < 2)
-        {
-            store.isTrackFound = false
-            store.trackMetadata.forEach(item => item.style.display = '')
-            noResultsLayout.style.display = 'none'
-            return
-        }
+    if (searchValue.length < 2)
+    {
+      storeStation.isTrackFound = false
+      storeStation.trackMetadataArray.forEach(item => item.style.display = '')
 
-        store.isTrackFound = false
-        store.trackMetadata.forEach((item, index) => 
-        {
-            const trackName = store.tracks[index].name.toLowerCase()
-            const trackMatch = trackName.includes(searchValue)
+      noResultsLayout.style.display = 'none'
+      return
+    }
 
-            item.style.display = trackMatch ? '' : 'none'
-            if (trackMatch) 
-                store.isTrackFound = true
-        })
+    storeStation.isTrackFound = false
+    storeStation.trackMetadataArray.forEach((item, index) => 
+    {
+      const trackName = storeStation.tracksArray[index].name.toLowerCase()
+      const trackMatch = trackName.includes(searchValue)
 
-        noResultsLayout.style.display = store.isTrackFound ? 'none' : ''
-    }, 200)
+      item.style.display = trackMatch ? ('') : ('none')
+
+      if (trackMatch)
+      {
+        storeStation.isTrackFound = true
+      }
+    })
+
+    noResultsLayout.style.display = storeStation.isTrackFound ? ('none') : ('')
+  }, 200)
 })

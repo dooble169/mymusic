@@ -1,23 +1,25 @@
-import { dom } from './stateExport.js'
-import { saveSong, loadPlaylist } from './function.js'
+import { domStation } from './stateExport.js'
+import { saveTrack, loadPlaylist } from './function.js'
+
 
 const validFileTypes = new Set(['audio/mpeg', 'audio/mp4'])
-const { uploadTrack } = dom
+const { uploadTrack } = domStation
+
 
 uploadTrack.addEventListener('change', async event => 
 {
-    const files = Array.from(event.target.files)
-    for (let file of files) 
+  const files = Array.from(event.target.files)
+  for (let file of files) 
+  {
+    if (!validFileTypes.has(file.type))
     {
-        if (!validFileTypes.has(file.type))
-        {
-            console.log(`Unsupported File Type: ${file.type} (${file.name})`)
-            alert(`Invalid File Type: ${file.type}, (${file.name})`)
-            continue
-        }
-
-        await saveSong(file)
+      console.log(`Unsupported File Type: ${ file.type } (${ file.name })`)
+      alert(`Invalid File Type: ${ file.type }, (${ file.name })`)
+      continue
     }
 
-    loadPlaylist()
+    await saveTrack(file)
+  }
+
+  loadPlaylist()
 })

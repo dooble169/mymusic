@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Playlist</title>
+  <title>My Playlist</title>
 
-    <link rel="icon" href="image/favicon.png" type="image/png">
-    <link rel="stylesheet" href="css/body.css">
-    <link rel="stylesheet" href="css/style.css">
-    
-    <script type="module" src="js/main.js" defer></script>
+  <link rel="icon" href="image/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/body.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-left">
-            <button type="button" id="themeButton" class="theme-button"></button>
-            <button type="button" id="playOneSongButton" class="play-one-song-button">
-              <div class="play-one-song-icon"></div>
-            </button>
-        </div>
-
-        <div class="navbar-right">
-            <input type="search" id="searchTrackBar" placeholder="..." data-search class="search-track-bar" autocomplete="off">
-
-            <button type="button" class="upload-track-button">
-                <label id="upload-track-label" for="upload-track" class="upload-track">
-                    <input type="file" id="upload-track" name="upload-track" multiple accept=".mp3, .mp4">
-
-                    <div id="uploadTrackButton"></div>
-                </label>
-                
-                <audio id="audioFromTrack" preload="metadata"></audio>
-            </button>
-        </div>
-    </nav>
-
-    <div class="sidebar">
-        <div class="user-controls-layout">
-            <div class="user-controls-layout-top">
-                <div class="track-name-container">
-                    <div class="track-name-wrapper" id="trackNameWrapper">
-                        <p>Loading Previous Track..</p>
-                    </div>
-                </div>
-
-                <div class="drag-handle" id="grabButton"></div>
-            </div>
-
-            <div class="user-controls-layout-center">
-                <button type="button" id="playPreviousTrackButton" class="control-previous-button">«</button>
-
-                <button type="button" id="playPauseTrackButton" class="play-pause-button">▶︎</button>
-
-                <button type="button" id="playNextTrackButton" class="control-next-button">»</button>
-            </div>
-
-            <div class="user-controls-layout-bottom">
-                <input type="range" id="volumeBar" min="0" max="1" step="0.01">
-
-                <input type="range" id="seekBar" value="0" step="0.01">
-            </div>
-        </div>
-
-        <div id="userPlaylistLayout" class="user-playlist-layout"></div>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <button type="button" id="themeSwitchButton" class="theme-switch-button"></button>
+      <button type="button" id="playOneSongButton" class="play-one-song-button">
+        <div class="play-one-song-icon"></div>
+      </button>
     </div>
+
+    <div class="navbar-right">
+      <input type="search" id="searchTrackBar" placeholder="..." data-search class="search-track-bar" autocomplete="off">
+
+      <button type="button" class="upload-track-button">
+        <label id="upload-track-label" for="upload-track" class="upload-track">
+          <input type="file" id="upload-track" name="upload-track" multiple accept=".mp3, .mp4">
+
+          <div class="upload-track-icon" id="uploadTrackButton"></div>
+        </label>
+        
+        <audio id="audioFromTrack" preload="metadata"></audio>
+      </button>
+    </div>
+  </nav>
+
+  <div class="sidebar">
+    <div class="user-controls-layout">
+      <div class="user-controls-layout-top">
+        <div class="track-name-container">
+          <div class="track-name-wrapper" id="trackNameWrapper">
+            <p>Loading Previous Track..</p>
+          </div>
+        </div>
+
+        <div class="drag-handle" id="grabButton">
+          <div class="drag-handle-icon"></div>
+        </div>
+      </div>
+
+      <div class="user-controls-layout-center">
+        <button type="button" id="playPreviousTrackButton" class="control-previous-button">«</button>
+
+        <button type="button" id="playPauseTrackButton" class="play-pause-button">▶︎</button>
+
+        <button type="button" id="playNextTrackButton" class="control-next-button">»</button>
+      </div>
+
+      <div class="user-controls-layout-bottom">
+        <input type="range" id="volumeBar" min="0" max="1" step="0.01">
+
+        <input type="range" id="seekBar" value="0" step="0.01">
+      </div>
+    </div>
+
+    <div id="userPlaylistLayout" class="user-playlist-layout"></div>
+  </div>
 </body>
 </html>
